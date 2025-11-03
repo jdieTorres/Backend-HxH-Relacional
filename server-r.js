@@ -39,7 +39,7 @@ const swaggerOptions = {
       },
     ],
   },
-  apis: ["./server-pg.js"],
+  apis: ["./server-r.js"],
 };
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
@@ -172,3 +172,4 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
+
