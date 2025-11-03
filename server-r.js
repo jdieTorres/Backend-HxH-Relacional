@@ -300,7 +300,13 @@ app.delete("/personajes/:nombre", async (req, res) => {
   }
 });
 
-console.log(`Servidor corriendo en https://backend-hxh-relacional.onrender.com/`);
+const PORT = 3001;
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en https://backend-hxh-relacional.onrender.com/`);
+});
+
+
+
 
 
 
