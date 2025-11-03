@@ -1,0 +1,20 @@
+{
+  "name": "back-end-r",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server-r.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server-r.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mysql2": "^3.15.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
