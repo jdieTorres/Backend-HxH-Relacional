@@ -20,8 +20,8 @@ const pool = new Pool({
 });
 
 pool.connect()
-  .then(() => console.log("✅ Conectado a PostgreSQL"))
-  .catch(err => console.error("❌ Error de conexión:", err));
+  .then(() => console.log("Conectado a PostgreSQL"))
+  .catch(err => console.error("Error de conexión:", err));
 
 // Swagger Configuración
 const swaggerOptions = {
@@ -34,8 +34,8 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: "http://localhost:3001",
-        description: "Servidor local",
+        url: "https://backend-hxh-relacional.onrender.com/",
+        description: "Servidor en Render",
       },
     ],
   },
@@ -300,9 +300,7 @@ app.delete("/personajes/:nombre", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
-});
+console.log(`Servidor corriendo en https://backend-hxh-relacional.onrender.com/`);
+
 
 
