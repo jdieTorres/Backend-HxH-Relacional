@@ -300,10 +300,11 @@ app.delete("/personajes/:nombre", async (req, res) => {
   }
 });
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en https://backend-hxh-relacional.onrender.com/`);
+  console.log(`Servidor ejecutándose en el puerto ${PORT}`);
 });
+
 
 
 
