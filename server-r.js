@@ -51,6 +51,40 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
  *   get:
  *     summary: Obtiene todos los personajes
  *     tags: [Personajes]
+ *     responses:
+ *       200:
+ *         description: Lista de personajes obtenida exitosamente
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   nombre:
+ *                     type: string
+ *                     example: Gon Freecss
+ *                   edad:
+ *                     type: integer
+ *                     example: 14
+ *                   altura:
+ *                     type: number
+ *                     example: 157
+ *                   peso:
+ *                     type: number
+ *                     example: 49
+ *                   color_ojos:
+ *                     type: string
+ *                     example: Verde
+ *                   color_cabello:
+ *                     type: string
+ *                     example: Negro
+ *                   estado:
+ *                     type: string
+ *                     example: Vivo
+ *                   imagen:
+ *                     type: string
+ *                     example: https://example.com/gon.jpg
  */
 app.get("/personajes", async (req, res) => {
   try {
@@ -68,6 +102,18 @@ app.get("/personajes", async (req, res) => {
  *   get:
  *     summary: Obtiene un personaje por nombre
  *     tags: [Personajes]
+ *     parameters:
+ *       - in: path
+ *         name: nombre
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Nombre del personaje
+ *     responses:
+ *       200:
+ *         description: Personaje encontrado
+ *       404:
+ *         description: Personaje no encontrado
  */
 app.get("/personajes/:nombre", async (req, res) => {
   try {
@@ -93,6 +139,42 @@ app.get("/personajes/:nombre", async (req, res) => {
  *   post:
  *     summary: Crea un nuevo personaje
  *     tags: [Personajes]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               nombre:
+ *                 type: string
+ *                 example: Killua Zoldyck
+ *               edad:
+ *                 type: integer
+ *                 example: 14
+ *               altura:
+ *                 type: number
+ *                 example: 158
+ *               peso:
+ *                 type: number
+ *                 example: 49
+ *               color_ojos:
+ *                 type: string
+ *                 example: Azul
+ *               color_cabello:
+ *                 type: string
+ *                 example: Blanco
+ *               estado:
+ *                 type: string
+ *                 example: Vivo
+ *               imagen:
+ *                 type: string
+ *                 example: https://example.com/killua.jpg
+ *     responses:
+ *       201:
+ *         description: Personaje agregado correctamente
+ *       400:
+ *         description: Falta el nombre obligatorio
  */
 app.post("/personajes", async (req, res) => {
   try {
@@ -120,6 +202,45 @@ app.post("/personajes", async (req, res) => {
  *   put:
  *     summary: Actualiza un personaje existente
  *     tags: [Personajes]
+ *     parameters:
+ *       - in: path
+ *         name: nombre
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               edad:
+ *                 type: integer
+ *                 example: 15
+ *               altura:
+ *                 type: number
+ *                 example: 159
+ *               peso:
+ *                 type: number
+ *                 example: 50
+ *               color_ojos:
+ *                 type: string
+ *                 example: Azul
+ *               color_cabello:
+ *                 type: string
+ *                 example: Blanco
+ *               estado:
+ *                 type: string
+ *                 example: Vivo
+ *               imagen:
+ *                 type: string
+ *                 example: https://example.com/killua2.jpg
+ *     responses:
+ *       200:
+ *         description: Personaje actualizado correctamente
+ *       404:
+ *         description: Personaje no encontrado
  */
 app.put("/personajes/:nombre", async (req, res) => {
   try {
@@ -149,6 +270,17 @@ app.put("/personajes/:nombre", async (req, res) => {
  *   delete:
  *     summary: Elimina un personaje
  *     tags: [Personajes]
+ *     parameters:
+ *       - in: path
+ *         name: nombre
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Personaje eliminado correctamente
+ *       404:
+ *         description: Personaje no encontrado
  */
 app.delete("/personajes/:nombre", async (req, res) => {
   try {
@@ -172,4 +304,5 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
+
 
